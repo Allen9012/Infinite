@@ -54,4 +54,18 @@ go-zero + k8s + mysql + redis + kafka
 设计文档和相关地址：
 设计文档来源于github.com/zhoushuguang/beyond
 
+# 文件和目录结构
 
+```shell
+tree -L 1 ./
+./
+├── README.md
+├── application
+├── db
+├── go.mod
+├── go.sum
+└── pkg
+```
+我们可以理解首先db里面放的主要是sql文件
+application中都是一个个的微服务的文件夹
+pkg就是一些第三方库相关的内容
