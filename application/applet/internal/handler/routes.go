@@ -2,9 +2,8 @@
 package handler
 
 import (
+	"github.com/Allen9012/Infinite/application/applet/internal/svc"
 	"net/http"
-
-	"applet/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

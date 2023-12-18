@@ -1,10 +1,10 @@
 package handler
 
 import (
+	"github.com/Allen9012/Infinite/application/applet/internal/logic"
+	"github.com/Allen9012/Infinite/application/applet/internal/svc"
 	"net/http"
 
-	"applet/internal/logic"
-	"applet/internal/svc"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
