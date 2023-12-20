@@ -1,0 +1,1 @@
+goctl api go --dir=./ --api applet.api
