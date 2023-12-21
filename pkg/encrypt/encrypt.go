@@ -18,12 +18,12 @@ import (
 **/
 
 const (
-	passwordEncryptSeed = "(beyond)@#$"
+	passwordEncryptSalt = "(infinite)@#$"
 	mobileAesKey        = "5A2E746B08D846502F37A6E2D85D583B"
 )
 
 func EncPassword(password string) string {
-	return Md5Sum([]byte(strings.TrimSpace(password + passwordEncryptSeed)))
+	return Md5Sum([]byte(strings.TrimSpace(password + passwordEncryptSalt)))
 }
 
 func EncMobile(mobile string) (string, error) {

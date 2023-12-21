@@ -2,8 +2,9 @@
 package handler
 
 import (
-	"github.com/Allen9012/Infinite/application/applet/internal/svc"
 	"net/http"
+
+	"github.com/Allen9012/Infinite/application/applet/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )
@@ -13,6 +14,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
+				Path:    "/login",
+				Handler: LoginHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
 				Path:    "/register",
 				Handler: RegisterHandler(serverCtx),
 			},
@@ -20,11 +26,6 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Method:  http.MethodPost,
 				Path:    "/verification",
 				Handler: VerificationHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/login",
-				Handler: LoginHandler(serverCtx),
 			},
 		},
 		rest.WithPrefix("/v1"),
@@ -38,6 +39,8 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: UserInfoHandler(serverCtx),
 			},
 		},
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+		rest.WithSignature(serverCtx.Config.Signature),
 		rest.WithPrefix("/v1/user"),
 	)
 }
