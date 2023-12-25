@@ -51,7 +51,7 @@ func (l *VerificationLogic) Verification(req *types.VerificationRequest) (resp *
 	if len(code) == 0 { // 需要生成新的验证码
 		code = util.RandomNumeric(6)
 	}
-	// 发消息
+	// TODO 发消息
 	_, err = l.svcCtx.UserRPC.SendSms(l.ctx, &user.SendSmsRequest{Mobile: req.Mobile})
 	if err != nil {
 		logx.Errorf("sendSms mobile: %s error: %v", req.Mobile, err)

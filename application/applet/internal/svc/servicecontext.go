@@ -3,6 +3,7 @@ package svc
 import (
 	"github.com/Allen9012/Infinite/application/applet/internal/config"
 	"github.com/Allen9012/Infinite/application/user/rpc/user"
+	"github.com/Allen9012/Infinite/pkg/interceptors"
 	"github.com/zeromicro/go-zero/core/stores/redis"
 	"github.com/zeromicro/go-zero/zrpc"
 )

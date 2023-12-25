@@ -24,7 +24,7 @@ func NewSendSmsLogic(ctx context.Context, svcCtx *svc.ServiceContext) *SendSmsLo
 }
 
 func (l *SendSmsLogic) SendSms(in *service.SendSmsRequest) (*service.SendSmsResponse, error) {
-	// todo: send sms
+	// todo: send sms 使用aliyun的sdk
 
 	return &service.SendSmsResponse{}, nil
 }
