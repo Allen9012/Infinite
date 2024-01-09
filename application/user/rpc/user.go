@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/Allen9012/Infinite/pkg/interceptors"
 
 	"github.com/Allen9012/Infinite/application/user/rpc/internal/config"
 	"github.com/Allen9012/Infinite/application/user/rpc/internal/server"
@@ -33,6 +34,8 @@ func main() {
 		}
 	})
 	defer s.Stop()
+	// rpc服务增加拦截器
+	s.AddUnaryInterceptors(interceptors.ServerErrorInterceptor())
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
 	s.Start()

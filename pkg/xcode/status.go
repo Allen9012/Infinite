@@ -154,12 +154,14 @@ func FromError(err error) *status.Status {
 	case context.DeadlineExceeded:
 		grpcStatus, _ = gRPCStatusFromXCode(Deadline)
 	default:
+		// status.FromError 从错误中提取出 grpc 状态。
 		grpcStatus, _ = status.FromError(err)
 	}
 
 	return grpcStatus
 }
 
+// 把grpc的错误存到detail中
 func gRPCStatusFromXCode(code XCode) (*status.Status, error) {
 	var sts *Status
 	switch v := code.(type) {
@@ -180,6 +182,7 @@ func gRPCStatusFromXCode(code XCode) (*status.Status, error) {
 	return stas.WithDetails(sts.Proto())
 }
 
+// GrpcStatusToXCode Grpc的状态转化为自定义包含http状态码的xcode
 func GrpcStatusToXCode(gstatus *status.Status) XCode {
 	details := gstatus.Details()
 	for i := len(details) - 1; i >= 0; i-- {

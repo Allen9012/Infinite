@@ -39,6 +39,7 @@ func BuildTokens(opt TokenOptions) (Token, error) {
 	return token, nil
 }
 
+// 在jwt中保存了用户的信息
 func genToken(iat int64, secretKey string, payloads map[string]interface{}, seconds int64) (string, error) {
 	claims := make(jwt.MapClaims)
 	claims["exp"] = iat + seconds

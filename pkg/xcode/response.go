@@ -6,6 +6,7 @@ import (
 )
 
 func ErrHandler(err error) (int, any) {
+	// err转换成业务自定义的code
 	code := CodeFromError(err)
 
 	return http.StatusOK, types.Status{

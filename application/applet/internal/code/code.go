@@ -2,6 +2,7 @@ package code
 
 import "github.com/Allen9012/Infinite/pkg/xcode"
 
+/* 定义了applet的错误码 */
 var (
 	RegisterMobileEmpty   = xcode.New(10001, "注册手机号不能为空")
 	VerificationCodeEmpty = xcode.New(100002, "验证码不能为空")
